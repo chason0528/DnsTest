@@ -173,13 +173,13 @@ void DnsFormat::PrintData() {
     //print authorities block
     std::cout << "authorities:" << std::endl;
     for (int i = 0; i < header_->ns_count; ++i) {
-        (*answers_)[i].PrintData();
+        (*authorities_)[i].PrintData();
     }
     PRINT_BLANK_LINE;
     //print additions block
-    std::cout << "addtions:" << std::endl;
+    std::cout << "additions:" << std::endl;
     for (int i = 0; i < header_->ar_count; ++i) {
-        (*answers_)[i].PrintData();
+        (*additions_)[i].PrintData();
     }
     PRINT_BLANK_LINE;
 }
