@@ -1,9 +1,9 @@
 cc := g++
 ifeq ($(ver), debug)
-prom:= testdns_d
+prom:= dnstest_d
 CXXFLAGS := -m32 -g -Ddebug
 else
-prom:= testdns
+prom:= dnstest
 CXXFLAGS := -m32
 endif
 deps := $(wildcard *.h)
