@@ -36,10 +36,10 @@ std::vector<QName>* QName::AddrToQNames(const std::string& address, size_t &len)
             index_recorder += (block_len + 1);
             block_len = 0;
 
-        }else
-            //unknown character
-            return 0;
-
+        }else{//unknown character
+            std::cout << "invalid domain address" << std::endl;
+            return nullptr;
+        }
     }
 
     qns_chars[index_recorder] = block_len;

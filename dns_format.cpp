@@ -177,7 +177,7 @@ void DnsFormat::PrintData() {
     }
     PRINT_BLANK_LINE;
     //print additions block
-    std::cout << "additions:" << std::endl;
+    std::cout << "addtions:" << std::endl;
     for (int i = 0; i < header_->ar_count; ++i) {
         (*additions_)[i].PrintData();
     }

@@ -54,10 +54,6 @@ int main(int argc, char *argv[]){
         std::cout << USAGE << std::endl;
         return 0;
     }
-
-
-
-
     int fd= socket(AF_INET, SOCK_DGRAM, 0);
     if (fd < 0) {
         perror("socket fd is created error");
@@ -73,7 +69,6 @@ int main(int argc, char *argv[]){
     char *buf = static_cast<char *>(malloc(sizeof(char) *BUF_SIZE));
 
     DnsFormat *format = DnsFormat::CreateDnsQuest(address, kQueryType);
-
     if(format == nullptr){
         return 1;
     }
@@ -81,9 +76,8 @@ int main(int argc, char *argv[]){
 
     sendto(fd, buf, buf_len, 0, (struct sockaddr *)&addr_serv, struct_len);
     recvfrom(fd, buf, BUF_SIZE, 0, (struct sockaddr *)&addr_serv, (socklen_t *)&(struct_len));
+
     DnsFormat *ResponseDns = new DnsFormat(buf);
     ResponseDns->PrintData();
-
-
     return 0;
 }

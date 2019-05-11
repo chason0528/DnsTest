@@ -52,7 +52,7 @@ DnsQuery* DnsQuery::CreateBaseQuery(const std::string &address, uint16_t q_type,
     size_t qnames_size;
     auto *qns = QName::AddrToQNames(address, qnames_size);
 
-    if(qnames_size == 0)
+    if(qnames_size == 0 || qns == nullptr)
         return nullptr;
     return new DnsQuery(qns, qnames_size, q_type, q_class);
 }
